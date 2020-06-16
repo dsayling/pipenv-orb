@@ -1,14 +1,23 @@
-description: >
-  Sample example description.
-  # What will this example document?
-  # Descriptions should be short, simple, and clear.
+description: |
+  Using pipenv-orb
 usage:
   version: 2.1
   orbs:
-    foo: bar/foo@1.2.3
+    pipenv: circleci/pipenv@Alpha
+  workflows:
+    main:
+      jobs:
+        - build
   jobs:
     build:
-      machine: true
+      executor: pipenv/default
       steps:
-        - foo/hello:
-            username: "Anna"
+        - checkout
+        # - pipenv/load-cache
+        - pipenv/install
+        # - pipenv/save-cache
+        - run:
+            name: "Test"
+            command: |
+              # pytest would be a dep in Pipfile
+              pytest

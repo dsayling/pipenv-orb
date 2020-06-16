@@ -1,0 +1,17 @@
+description: >
+  Setup a pipenv environment
+parameters:
+  dev:
+    description: "Run pipenv install with `--dev -e`"
+    type: boolean
+    default: true
+steps:
+  - run:
+      name: "Install Dependencies with pipenv in project directory with Pipfile"
+      command: |
+        pip install --user pipenv
+        if << parameters.dev >>; then
+          pipenv install --dev -e .
+        else
+          pipenv install .
+        fi
