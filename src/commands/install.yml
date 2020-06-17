@@ -7,7 +7,7 @@ parameters:
     default: true
 steps:
   - run:
-      name: "Install Dependencies with pipenv in project directory with Pipfile"
+      name: "Install Dependencies with pipenv in project directory with Pipfile."
       # shell: /bin/bash -e
       command: |
         pip install --user pipenv
