@@ -10,7 +10,7 @@ steps:
       name: "Install Dependencies with pipenv in project directory with Pipfile"
       # shell: /bin/bash -e
       command: |
-        echo 'Y' | pip install --user pipenv
+        pip install --user --yes pipenv
         if << parameters.dev >>; then
           pipenv install --dev -e .
         else
