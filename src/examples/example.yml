@@ -3,7 +3,7 @@ description: |
 usage:
   version: 2.1
   orbs:
-    pipenv: circleci/pipenv@Alpha
+    pipenv: dsayling/pipenv-orb@Alpha
   workflows:
     main:
       jobs:
@@ -13,11 +13,11 @@ usage:
       executor: pipenv/default
       steps:
         - checkout
-        # - pipenv/load-cache
-        - pipenv/install
-        # - pipenv/save-cache
+        - pipenv/pipenv-install:
+          args: --dev -e .
+
         - run:
             name: "Test"
             command: |
               # pytest would be a dep in Pipfile
-              pytest
+              pipenv run pytest

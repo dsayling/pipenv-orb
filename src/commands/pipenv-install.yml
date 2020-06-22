@@ -1,5 +1,5 @@
 description: >
-  Setup a pipenv environment
+  Setup a pipenv environment with 'pipenv install'
 parameters:
   args:
     description: "Run pipenv install with args"
