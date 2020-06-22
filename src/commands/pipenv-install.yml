@@ -51,6 +51,6 @@ steps:
       condition: << parameters.pypi-cache >>
       steps:
         - save_cache:
-            key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
+            key: pypi-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
             paths:
               - ~/.cache

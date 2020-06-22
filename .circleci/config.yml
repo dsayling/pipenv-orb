@@ -31,15 +31,25 @@ jobs:
       # install requests at an older version to upgrade later
       - pipenv-orb/pipenv-install:
           args: "requests==2.22.0"
+          venv-cache: true
       - run:
-          name: Insure pipenv is working
+          name: Ensure pipenv is working
           description: replace this with pipenv-orb/pipenv-run when that's available
           command: |
+            cp Pipfile.lock Pipfile.lock.tmp
             pipenv run python -c 'import requests; assert requests.get("http://python.org/", verify=False).status_code == 200'
       - pipenv-orb/pipenv-install:
           # Need to replace this with pipenv-update possibly
           args: "requests==2.24.0"
+      - run:
+          name: Overwrite the lockfile with the one that should load the cache
+          commmand: |
+            cp Pipfile.lock.tmp Pipfile.lock
+      - pipenv-orb/pipenv-install:
+        # this should sucessfully load the venv and 
+          args: "requests==2.22.0"
           venv-cache: true
+        
 
 
 workflows:
