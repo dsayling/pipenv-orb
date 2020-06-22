@@ -17,6 +17,10 @@ parameters:
     type: string
     default: "~/project"
     description: Path to the directory containing your package.json file. Not needed if package.json lives in the root.
+  include-branch-in-cache-key:
+    type: boolean
+    default: true
+    description: Cache based on branches
 steps:
   - run:
       name: "Restore virtual env from cache"
@@ -31,7 +35,7 @@ steps:
       steps:
         - restore_cache:
             keys:
-              - pypi-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
+              - pypi-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}-<</parameters.include-branch-in-cache-key>>
   - run:
       name: "Install Dependencies with pipenv in project directory with Pipfile."
       # shell: /bin/bash -e
@@ -50,6 +54,6 @@ steps:
       condition: << parameters.pypi-cache >>
       steps:
           - save_cache:
-              key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
+              key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}-<</parameters.include-branch-in-cache-key>>
               paths:
                 - ~/.cache
