@@ -20,7 +20,7 @@ parameters:
 steps:
   - run:
       name: "Restore virtual env from cache"
-  - when: 
+  - when:
       condition: << parameters.venv-cache >>
       steps:
         - restore_cache:
@@ -36,9 +36,8 @@ steps:
       name: "Install Dependencies with pipenv in project directory with Pipfile."
       # shell: /bin/bash -e
       command: |
-        pip install --user pipenv  #this needs to go away when the image is updated
+        pip install --user pipenv  #this needs to go away!
         pipenv install << parameters.args >>
-        
   - when: # cache enabled, save cache
       condition: << parameters.venv-cache >>
       steps:
