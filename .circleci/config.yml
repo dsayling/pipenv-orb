@@ -28,6 +28,7 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
+      - run: sudo easy_install pip
       - pipenv-orb/install:
         args: "requests"
 
