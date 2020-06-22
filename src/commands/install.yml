@@ -8,7 +8,7 @@ parameters:
   venv-cache:
     description: "Use the lockfile to save the deps. If the lockfile changes we reinstall anyway."
     type: boolean
-    default: true
+    default: false
   pypi-cache:
     description: "Keep the global pipenv and pip package caches for faster rebuilding overall."
     type: boolean
@@ -36,7 +36,6 @@ steps:
               - pypi-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}-<</parameters.include-branch-in-cache-key>>
   - run:
       name: "Install Dependencies with pipenv in project directory with Pipfile."
-      # shell: /bin/bash -e
       command: |
         pip install --user pipenv  #this needs to go away!
         pipenv install << parameters.args >>
