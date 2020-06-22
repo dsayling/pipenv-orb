@@ -46,10 +46,9 @@ jobs:
           commmand: |
             cp Pipfile.lock.tmp Pipfile.lock
       - pipenv-orb/pipenv-install:
-        # this should sucessfully load the venv and 
+          # this should sucessfully load the venv
           args: "requests==2.22.0"
           venv-cache: true
-        
 
 
 workflows:
