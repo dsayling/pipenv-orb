@@ -31,9 +31,9 @@ jobs:
       # install requests at an older version to upgrade later
       # - pipenv-orb/pipenv-install:
       #     args: "requests==2.22.0"
-      # - run: 
+      # - run:
       #     name: Insure pipenv is working
-      #     description: replace this with pipenv-orb/pipenv-run when that's available 
+      #     description: replace this with pipenv-orb/pipenv-run when that's available
       #     command: |
       #       pipenv run python -c 'import requests; assert requests.get("http://python.org/", verify=False).status_code == 200'
       # - pipenv-orb/pipenv-install:

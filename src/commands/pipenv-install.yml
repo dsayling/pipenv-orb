@@ -42,15 +42,15 @@ steps:
   - when: # cache enabled, save cache
       condition: << parameters.venv-cache >>
       steps:
-          - save_cache:
-              key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}-<</parameters.include-branch-in-cache-key>>{{ checksum "<<parameters.app-dir>>/Pipfile.lock" }}
-              paths:
-                - ~/.local/share/virtualenvs
+        - save_cache:
+            key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}-<</parameters.include-branch-in-cache-key>>{{ checksum "<<parameters.app-dir>>/Pipfile.lock" }}
+            paths:
+              - ~/.local/share/virtualenvs
 
   - when: # cache enabled, save cache
       condition: << parameters.pypi-cache >>
       steps:
-          - save_cache:
-              key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
-              paths:
-                - ~/.cache
+        - save_cache:
+            key: venv-<<#parameters.include-branch-in-cache-key>>{{ .Branch }}<</parameters.include-branch-in-cache-key>>
+            paths:
+              - ~/.cache
