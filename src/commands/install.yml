@@ -22,8 +22,6 @@ parameters:
     default: true
     description: Cache based on branches
 steps:
-  - run:
-      name: "Restore virtual env from cache"
   - when:
       condition: << parameters.venv-cache >>
       steps:

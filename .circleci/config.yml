@@ -28,7 +28,7 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
-    # - your-orb/your-orb-command
+      - pipenv-orb/install
 
 workflows:
   # This `lint-pack_validate_publish-dev` workflow will run on any commit.
