@@ -25,7 +25,7 @@ jobs:
   # Rename this job and add more as needed.
   #
   integration-test-1:
-    executor: cimg/python:3.8.3
+    executor: pipenv-orb/default
     steps:
       - checkout
       - run: sudo easy_install pip
