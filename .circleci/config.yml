@@ -41,12 +41,12 @@ jobs:
       - pipenv-orb/pipenv-install:
           # Need to replace this with pipenv-update possibly
           args: "requests==2.24.0"
-      # - run:
-      #     commmand: cp Pipfile.lock.tmp Pipfile.lock
-      #     name: Overwrite the lockfile with the one that should load the cache
-      # - pipenv-orb/pipenv-install:
-      #     args: "requests==2.22.0"
-      #     venv-cache: true
+      - run:
+          command: cp Pipfile.lock.tmp Pipfile.lock
+          name: Overwrite the lockfile with the one that should load the cache.
+      - pipenv-orb/pipenv-install:
+          args: "requests==2.22.0"
+          venv-cache: true
 
 
 workflows:
