@@ -19,4 +19,4 @@ jobs:
 workflows:
   setup:
     jobs:
-      - getting-started
+      - orb-python-scripts-tests
