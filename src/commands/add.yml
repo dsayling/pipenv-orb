@@ -1,0 +1,19 @@
+# How to author commands: https://circleci.com/docs/2.0/reusing-config/#authoring-reusable-commands
+description: >
+  Example command to add some ints together
+parameters:
+  add1:
+    type: int
+    default: 5
+    description: "select an integer to add"
+  add2:
+    type: int
+    default: 10
+    description: "select an integer to add"
+steps:
+  - run:
+      name: Hello Test, adds some numbers
+      environment:
+        PARAM1: <<parameters.add1>>
+        PARAM2: <<parameters.add2>>
+      command: <<include(scripts/example.py)>>

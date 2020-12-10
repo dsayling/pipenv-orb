@@ -10,5 +10,8 @@ usage:
     build:
       machine: true
       steps:
-        - foo/hello:
-            username: "Anna"
+        # will add 100 and 50
+        - foo/add:
+            add1: 100
+            add2: 50
+

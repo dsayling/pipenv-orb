@@ -1,13 +1,16 @@
 version: 2.1
 
 jobs:
-  getting-started:
+  orb-python-scripts-tests:
     docker:
       - image: cimg/python:3.9
     steps:
       - checkout
       - run:
           environment:
+            # the python path needs to be the directory above our python packages
+            # the two packages are scripts/ and tests/
+            # each directory needs an __init__.py so python can discover the unitests and all the scripts
             PYTHONPATH: ~/project/src
           working_directory: ~/project/src
           name: run tests

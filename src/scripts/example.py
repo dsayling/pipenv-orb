@@ -1,7 +1,13 @@
 
+import os
 
-def test_func():
-    return 10+5
+def test_func(x,y):
+    addition = x+y
+    print(addition)
+    return addition
 
 if __name__ == "__main__":
-    test_func()
+    ## Access the envvars set in the command
+    x = os.getenv("PARAM1")
+    y = os.getenv("PARAM2")
+    test_func(x,y)
