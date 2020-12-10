@@ -10,5 +10,5 @@ parameters:
     description: "Select a proper greeting"
 steps:
   - run:
-      name: Hello Test
-      command: <<include(scripts/greet.sh)>>
+      name: Hello Test, adds some numbers
+      command: <<include(scripts/example.py)>>
