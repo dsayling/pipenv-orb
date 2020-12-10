@@ -10,5 +10,5 @@ parameters:
     description: "Select a proper greeting"
 steps:
   - run:
-      name: Hello World
-      command: echo << parameters.greeting >> world
+      name: Hello Test
+      command: <<include(scripts/greet.sh)>>
