@@ -9,3 +9,4 @@ workflows:
     jobs:
       - python/test:
           pip-dependency-file: ""
+          app-dir: ~/project/src
