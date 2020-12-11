@@ -7,5 +7,4 @@ orbs:
 workflows:
   setup:
     jobs:
-      - python/test:
-          args: --help
+      - python/test
