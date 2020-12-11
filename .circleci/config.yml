@@ -7,4 +7,5 @@ orbs:
 workflows:
   setup:
     jobs:
-      - python/test
+      - python/test:
+          pip-dependency-file: ""
